@@ -29,12 +29,15 @@ class UserService {
             email
         });
 
-        if (result) {
+        if (result) {            
+            console.log("\n\n\n\n entyrou \n\n\n\n\n")
             const { password, ...user } = result; //vem do banco
             const passwordIsCorrect = await bcrypt.compare(user_password, password);
             if (passwordIsCorrect) {
                 return user;
             }
+        }else{
+            console.log("\n\n\n\n nao era pra ta aqui \n\n\n\n\n")
         }
     }
 

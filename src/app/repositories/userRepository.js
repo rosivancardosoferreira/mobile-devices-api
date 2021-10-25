@@ -6,10 +6,9 @@ class UserRepository {
         return results;
     }
 
-    async find_one(condition) {
-        const user = await knex('users').where(condition).first();
-        const { user_password, ...data } = user;
-        return data;
+    async find_one(condition) {        
+        const user = await knex('users').where(condition).first();        
+        return user;
     }
 
     async schedules_all(condition) {
