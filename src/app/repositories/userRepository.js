@@ -12,6 +12,11 @@ class UserRepository {
         return data;
     }
 
+    async schedules_all(condition) {
+        const data = await knex('schedules').where(condition);
+        return data;
+    }
+
     async create(data) {
         const user = await knex('users').insert(data);
         return user;
@@ -25,6 +30,11 @@ class UserRepository {
     async destroy(id) {
         const user = await knex('users').update({ deleted_at: knex.fn.now() }).where(id);
         return user;
+    }
+
+    async check_email(email) {
+        const result = await knex('users').where({ email }).first();
+        return result;
     }
 }
 

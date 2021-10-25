@@ -11,12 +11,13 @@ exports.up = function(knex) {
         table.string("complement", 100);
 
         //foreign key
-        table.integer("user_id").notNullable().unsigned();
+        table.integer("establishments_id").notNullable().unsigned();
         table
-            .foreign("user_id")
+            .foreign("establishments_id")
             .references("id")
-            .inTable("users")
+            .inTable("establishments")
             .onDelete("CASCADE");
+
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table.timestamp("updated_at").defaultTo(knex.fn.now());
 

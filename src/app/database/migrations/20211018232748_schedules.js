@@ -2,14 +2,11 @@ const { Knex } = require("knex");
 exports.up = function(knex) {
     return knex.schema.createTable("schedules", (table) => {
         table.increments("id").primary();
-        table.timestamp("datae").notNullable();
-        table.timestamp("hour").notNullable();
+        table.string("data").notNullable();
+        table.string("hour").notNullable();
         table.string("description", 100).notNullable();
         table.string("establishments", 50).notNullable();
         table.integer("status").notNullable();
-        table.string("20", 20).notNullable();
-
-
         table.string("state", 50).notNullable();
         table.string("city", 50).notNullable();
         table.string("district", 50).notNullable();
