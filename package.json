@@ -9,8 +9,10 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.95.11",
+    "moment": "^2.29.1",
     "mysql2": "^2.3.0",
-    "pg": "^8.7.1"
+    "pg": "^8.7.1",
+    "wbm": "^1.1.16"
   },
   "scripts": {
     "dev": "nodemon src/index.js",

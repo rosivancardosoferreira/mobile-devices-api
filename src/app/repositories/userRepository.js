@@ -35,6 +35,23 @@ class UserRepository {
         const result = await knex('users').where({ email }).first();
         return result;
     }
+
+    async check_code(code) {
+        const result = await knex('users').where({ code }).first();
+        return result;
+    }
+
+    async active_acount(code) {
+        const result = await 
+        knex('users')
+        .where('code', '=', code)
+        .update({
+            code: '',
+            active: true
+        });
+
+        return result;
+    }
 }
 
 module.exports = new UserRepository();

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const routes = require("./app/routes");
 const app = express();
+const wbm = require('wbm');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -22,6 +23,17 @@ app.use((req, res, next) => {
     }
     next();
 });
+
+
+// wbm.start({showBrowser: true, qrCodeData: true, session: false})
+// .then(async qrCodeData => {
+//     console.log(qrCodeData); // show data used to generate QR Code
+//     await wbm.waitQRCode();
+//     // waitQRCode() is necessary when qrCodeData is true
+//     // ...
+//     await wbm.end();
+// } ).catch(err => { console.log(err); });
+
 
 app.use(routes);
 
